@@ -1,0 +1,6 @@
+{
+    "board": "arduino:avr:uno",
+    "programmer": "ArduinoISP",
+    "port": "/dev/ttyS0",
+    "sketch": "sketch_led_button.ino"
+}
