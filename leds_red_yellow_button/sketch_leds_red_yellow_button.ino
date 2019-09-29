@@ -14,7 +14,7 @@ const char colors[2][MAX_STRING_SIZE] = {"yellow", "red"};
 
 // buttonState
 bool buttonState = false;
-int ledCycle = 0;
+int ledState = 0;
 char ledOn[] = "yellow";
 
 void setup() {
@@ -27,12 +27,14 @@ void setup() {
 void loop() {
   buttonState = digitalRead(buttonPin);
 
+  // if button clicked change led state
   if (buttonState == HIGH) {
-    ledCycle = abs(ledCycle - 1);
-    strcpy(ledOn, colors[ledCycle]);
+    ledState = abs(ledState - 1);
+    strcpy(ledOn, colors[ledState]);
     delay(500);
   }
 
+  // if ledOn is yellow, light up yellow led, else light up red led
   if (strcmp(ledOn, "yellow")) {
     digitalWrite(ledYellowPin, HIGH);
     digitalWrite(ledRedPin, LOW);
